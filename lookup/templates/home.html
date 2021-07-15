@@ -1,6 +1,44 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1> hlw world </h1>
+</br>
+</br>
+
+{% if api %}
+    {% if api == 'Error...' %}
+        Sorry Man, Error!!!
+    {% else %}
+        <div class="jumbotron">
+            <h1 class="display-4">{{ api.0.Category.Name }}</h1>
+            <p class="lead">{{ api.0.ReportingArea }} Air quality Index: {{ api.0.AQI }}</p>
+            <hr class="my-4">
+            <p></p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="{% url 'home' %}" role="button">Refresh</a>
+            </p>
+        </div>
+
+        </br>
+        Air quality : {{ api.0.Category.Name }}
+        </br>
+        Area : {{ api.0.ReportingArea }} 
+        </br>
+        {% if zipcode %} Zipcode: {{ zipcode }}, USA. {% endif %}
+        </br>
+        AQI : {{ api.0.AQI }} 
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+           
+    {% endif %}
+
+{% endif %}
 {% endblock %}
 
